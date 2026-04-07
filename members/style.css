@@ -1,0 +1,351 @@
+@font-face{
+    font-family: 'Poppins';
+    src: url(fonts/Poppins-Regular.ttf);
+}
+body{
+    background: #000;   /* 🔥 prevents white anywhere */
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins',sans-serif;
+}
+
+
+header{
+    z-index: 999;
+    position: absolute;
+    top:0;
+    left:0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 200px;
+    transition: 0.5s ease;
+}
+
+header .brand{
+    color:#fff; 
+    font-size: 1.5em;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+header .navigation{
+    position: relative;
+}
+
+header .navigation .navigation-items a{
+    position: relative;
+    color: #fff;
+    font-size: 1em;
+    font-weight: 500;
+    text-decoration: none;
+    margin-left: 30px;
+    transition: 0.3s ease;
+}
+
+header .navigation .navigation-items a:before{
+    content: '';
+    position: absolute;
+    background: #fff;
+    width: 0;
+    height: 3px;
+    bottom:0;
+    left: 0;
+    transition: 0.3s ease;
+}
+
+header .navigation .navigation-items a:hover:before{
+    width: 100%;
+
+}
+
+section{
+    padding:100px 200px;
+}
+
+.bg{
+    position: relative;
+    width: 100%;
+    height:100vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background: #000;
+    overflow: hidden;
+}
+
+.bg{
+    z-index: 777;
+    content: '';
+    position: absolute;
+    background: linear-gradient(rgba(0,0,0,0.40));
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+.bg .content{
+    z-index: 888;
+    color: #fff;
+    width: 70%;
+    margin-top: 50px;
+}
+
+.bg .content h1{
+    font-size: 4em;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    line-height: 75px;
+    margin-bottom: 40px;
+}
+
+.bg .content h1 span{
+    font-size: 1.2em;
+    font-weight: 600;
+}
+
+.bg .content p{
+    margin-bottom: 65px;
+}
+
+.bg .content a{
+    background: #fff;
+    padding: 15px 35px;
+    color: #1680AC;
+    font-size: 1.1em;
+    font-weight: 500;
+    text-decoration: none;
+    border-radius: 2px;
+}
+
+.bg .media-icons{
+    z-index: 888;
+    position: absolute;
+    right: 30px;
+    display: flex;
+    flex-direction: column;
+    transition: 0.5s ease;
+}
+
+.bg .media-icons a{
+    color:#fff;
+    font-size: 1.6em;
+    transition: 0.3s ease;
+}
+
+
+.bg .media-icons a:not(:last-child){
+    margin-bottom: 20px;
+}
+
+.bg .media-icons a:hover{
+    transform: scale(1.3);
+}
+.bg{
+    z-index: 000;
+    position: absolute;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.bg-slide,
+.bg{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;       /* VERY IMPORTANT */
+    object-fit: cover;  /* fills entire area */
+}
+.bg-slide{
+    position: absolute;
+    width: 100%;
+    clip-path: circle(0% at 50% 0); 
+}
+.bg-slide.active{
+    clip-path: circle(150.0% at 50% 0);
+    transition: 2s ease;
+    transition-property: clip-path;
+}
+
+.container{
+    width:100%;
+    min-height:100vh;
+    background: #000;
+    padding-top: 50px;
+}
+
+.boxes{
+    width: 80%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-gap: 40px;
+}
+.box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.detail h2,
+.detail p{
+    text-align: center;
+    padding: 0;
+}
+.box{
+    position: relative;
+    box-shadow: 3px 3px 5px lightgray;
+    background: linear-gradient(rgba(0,0,0,0.60));
+    border-radius: 10px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.box img{
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    position: static;
+    top:30px;
+    left:40px;
+    border: 1px solid white;
+    box-shadow: 3px 3px 5px lightgray;
+    transition: 1.5s;
+}
+.links{
+    position: static;
+    top:50%;
+    right:30px;
+    transform: translateY(-50%);
+}
+
+.links a{
+    display: block;
+    font-size: 25px;
+    margin: 10px 0;
+    color: lightgray;
+    transition: .5s;
+}
+
+.links a.hover{
+    color:cyan;
+}
+
+.detail{
+    position: static;
+    bottom:15px;
+    width: 100%;
+}
+
+.detail h2,.detail p{
+    width: 100%;
+    text-align: left;
+    padding-left: 30px;    
+}
+
+.detail h2{
+    font-family: cursive;
+    color:white;
+    font-size: 22px;
+    margin-bottom: 3px;
+}
+
+.detail p{
+    color:lightgray;
+}
+
+.box:hover{
+    transform:scale(1.01);
+    box-shadow: 5px 5px 20px lightgray;
+}
+
+.box:hover img{
+    transform: scale(1.05);
+    box-shadow: 5px 5px 20px gray;
+}
+
+@media (max-width:768px){
+    .boxes{
+        width: 100%;   /* 🔥 full width */
+        padding: 0 15px;
+    }
+    .bg{
+        min-height: 100dvh;
+    }
+    header{
+        padding: 12px 20px;
+    }
+
+    section{
+        padding: 100px 20px;
+    }
+
+    .bg .media-icons{
+        right:15px;
+    }
+    header .navigation{
+    display: none;
+    }
+
+  header .navigation.active{
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+        top:0;
+        left:0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: rgba(1,1,1,0.5);
+    }
+    header .navigation .navigation-items a{
+        color:#222;
+        font-size: 1.2em;
+        margin: 20px;
+    }
+
+    header .navigation .navigation-items a:before{
+        background: #222; 
+        height: 5px;
+    }
+    header .navigation .navigation-items{
+        background: #fff;
+        width: 600px;
+        max-width: 600px;
+        margin: 20px;
+        padding: 40px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border-radius: 5px;
+        box-shadow: 0 5px 25px rgb(1 1 1/20%);
+    }
+    .menu-btn{
+        background: url(../images/menu.png)no-repeat;
+        background-size: 30px;
+        background-position: center;
+        width: 40px;
+        height: 40px;
+        cursor: pointer;
+        transition: 0.3s ease;
+    }
+    .menu-btn.active{
+        z-index: 999;
+        background: url(../images/close.png)no-repeat;
+        background-size: 25px;
+        background-position: center;
+        transition: 0.3s ease;
+    }
+}

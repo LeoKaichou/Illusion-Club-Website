@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Illusion</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <a href="#" class="brand">Illusion</a>
+        <div class="menu-btn">
+
+        </div>
+        <div class="navigation">
+            <div class="navigation-items">
+                <a href="index.html">Home</a>
+                <a href="#">Archive</a>
+                <a href="gallery/index.html">Gallery</a>
+                <a href="#">History</a>
+                <a href="members/index.html">Members</a>
+            </div>
+        </div>
+    </header>
+    <section class="home">
+        <div class="bg">
+            <img class="bg-slide active" src="images/back.png">
+            <img class="bg-slide" src="images/2.jpeg">
+            <img class="bg-slide" src="images/3.jpeg">
+            <img class="bg-slide" src="images/4.jpeg">
+            <img class="bg-slide" src="images/5.jpeg">
+        </div>
+
+        <div class="content">
+            <h1>Illusion<br><span></span></h1>
+            <p>We Dance To Express Not to Impress</p>
+           <!-- <a href="#">Read More</a>-->
+        </div>
+        <div class="media-icons">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+        </div>
+        <div class="slider-navigation">
+            <div class="nav-btn active"></div>
+            <div class="nav-btn"></div>
+            <div class="nav-btn"></div>
+            <div class="nav-btn"></div>
+            <div class="nav-btn"></div>
+        </div>
+    </section>
+    <script type="text/javascript">
+        // Navigation for slider:
+        const menuBtn=document.querySelector(".menu-btn");
+        const navigation=document.querySelector(".navigation");
+const btns = document.querySelectorAll(".nav-btn");
+const slides = document.querySelectorAll(".bg-slide");
+
+menuBtn.addEventListener("click",()=>{
+    menuBtn.classList.toggle("active"); 
+    navigation.classList.toggle("active"); 
+})
+let currentSlide = 0;
+let autoSlideInterval;
+
+//Slider
+function sliderNav(manual){
+    btns.forEach((btn)=>{
+        btn.classList.remove("active");
+    });
+
+    slides.forEach((slide)=>{
+        slide.classList.remove("active");
+    });
+
+    btns[manual].classList.add("active");
+    slides[manual].classList.add("active");
+}
+
+function autoSlider(){
+    currentSlide++;
+
+    if(currentSlide >= slides.length){
+        currentSlide = 0;
+    }
+
+    sliderNav(currentSlide);
+}
+
+function startAutoSlider(){
+    autoSlideInterval = setInterval(autoSlider, 10000);
+}
+
+function resetAutoSlider(){
+    clearInterval(autoSlideInterval);
+    startAutoSlider();
+}
+
+// manual click
+btns.forEach((btn, i)=>{
+    btn.addEventListener("click",()=>{
+        sliderNav(i);
+        currentSlide = i;
+        resetAutoSlider();
+    });
+});
+
+// start auto slider
+startAutoSlider();
+    </script>
+</body>
+</html>
